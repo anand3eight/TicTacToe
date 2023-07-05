@@ -1,7 +1,7 @@
 let cells = ['', '', '', '', '', '', '', '', ''];
 let currentPlayer = 'X';
 let result = document.querySelector('.result');
-let btns = document.querySelector('.btn');
+let btns = document.querySelectorAll('.btn');
 let conditions = [
     [0, 1, 2],
     [3, 4, 5],
@@ -20,9 +20,9 @@ const ticTacToe = (element, index) => {
     result.innerHTML = `Player ${currentPlayer} Turn`;
     for (let i = 0; i < conditions.length; i++) {
         let condition = conditions[i];
-        let a = condition[0];
-        let b = condition[1];
-        let c = condition[2];
+        let a = cells[condition[0]];
+        let b = cells[condition[1]];
+        let c = cells[condition[2]];
         if (a == '' || b == '' || c == '') {
             continue;
         }
@@ -41,7 +41,7 @@ function reset() {
     currentPlayer = 'X';
     result.innerHTML = 'Player X Turn';
     btns.forEach((btn) => {
-        btns.disabled = false;
+        btn.disabled = false;
     });
 };
 
